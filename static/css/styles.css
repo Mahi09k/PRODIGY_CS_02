@@ -1,0 +1,83 @@
+/* styles.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #000033, #000080) no-repeat; /* Navy blue gradient */
+    background-size: cover; /* Ensure the gradient covers the entire viewport */
+    color: white; /* Text color */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #333; /* Dark background color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.file-icon {
+    margin-right: 5px;
+}
+/* styles.css */
+
+/* styles.css */
+
+/* Button styles */
+button {
+    margin: 10px 10px 10px 0; /* Added margin on the right for spacing between buttons */
+    padding: 12px 24px; /* Increased padding for larger buttons */
+    background-color: #333; /* Dark background color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+button:hover {
+    background-color: #555; /* Darker background color on hover */
+}
+
+/* Align buttons horizontally */
+button[type="submit"], button[type="button"] {
+    display: inline-block;
+}
+
+/* Key text box styles */
+input[type="text"] {
+    margin: 10px 0; /* Added margin to separate from buttons */
+    padding: 12px; /* Increased padding for larger text box */
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #555; /* Add border for cleaner look */
+}
+
+input[type="text"]:focus {
+    outline: none; /* Remove outline when text box is focused */
+    border-color: #777; /* Darker border color when text box is focused */
+}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Encryption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Image Encryption Tool</h1>
+    <div id="buttons">
+        <button id="encrypt-btn">Encrypt Image</button>
+        <button id="decrypt-btn">Decrypt Image</button>
+    </div>
+    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data" style="display: none;">
+        <label for="image-upload" class="file-label">
+            <i class="fa-solid fa-file file-icon"></i> <!-- Icon -->
+            Choose Image
+        </label>
+        <input id="image-upload" type="file" name="image" accept="image/*" required>
+        <input type="text" name="key" id="key" placeholder="Enter encryption key" required>
+        <input type="hidden" name="decryption" value="false">
+        <button type="submit" id="submit-btn">Encrypt Image</button>
+    </form>
+    <form id="decrypt-form" action="/upload" method="post" enctype="multipart/form-data" style="display: none;">
+        <label for="encrypted-image-upload" class="file-label">
+            <i class="fa-solid fa-file file-icon"></i> <!-- Icon -->
+            Choose Encrypted Image
+        </label>
+        <input id="encrypted-image-upload" type="file" name="image" accept="image/*" required>
+        <input type="text" name="key" id="decrypt-key" placeholder="Enter decryption key" required>
+        <input type="hidden" name="decryption" value="true">
+        <button type="submit" id="decrpt-submit-btn">Decrypt Image</button>
+    </form>
+    {% if encrypted_image_url and not decrypted_image_url %}
+        <h2>Encrypted Image</h2>
+        <img src="{{ encrypted_image_url }}" alt="Encrypted Image">
+        <br>
+        <a href="{{ encrypted_image_url }}" download>Download Encrypted Image</a>
+    {% endif %}
+    {% if decrypted_image_url and not encrypted_image_url %}
+        <h2>encrypted Image</h2>
+        <img src="{{ decrypted_image_url }}" alt="Decrypted Image">
+        <br>
+        <a href="{{ decrypted_image_url }}" download>Download encrypted Image</a>
+    {% endif %}
+
+    <script>
+        document.getElementById("encrypt-btn").addEventListener("click", function() {
+            document.getElementById("upload-form").style.display = "block";
+            document.getElementById("decrypt-form").style.display = "none";
+            document.getElementById("submit-btn").innerText = "Encrypt Image";
+        });
+
+        document.getElementById("decrypt-btn").addEventListener("click", function() {
+            document.getElementById("upload-form").style.display = "none";
+            document.getElementById("decrypt-form").style.display = "block";
+            document.getElementById("submit-btn").innerText = "Decrypt Image";
+        });
+    </script>
+</body>
+</html>
